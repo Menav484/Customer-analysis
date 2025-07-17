@@ -22,6 +22,7 @@ The goal was to understand customer behavior, track sales performance, and find 
 - Analyzed monthly sales trends and product performance
 - Built an easy-to-read dashboard in Power BI
 
+---
 
 ## Dashboard Preview
 
