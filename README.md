@@ -22,7 +22,20 @@ The goal was to understand customer behavior, track sales performance, and find 
 - Analyzed monthly sales trends and product performance
 - Built an easy-to-read dashboard in Power BI
 
+
+## Dashboard Preview
+
+<img width="1300" height="704" alt="Screenshot 2025-07-17 114702" src="https://github.com/user-attachments/assets/fc24db76-527f-4044-987b-c27b571e3c5c" />
+
+
+
 ---
+## Key Insights
+
+- Most revenue came from customers in the UK
+- Ireland has the highest RFM score
+- RFM analysis shows ~37% of customers are New 
+- RFM analysis shows ~27% of customers are Lost
 
 
 This project helped me go beyond just building dashboards. I worked through actual cleaning issues, wrote SQL to prep the data myself, and built visuals that answer real business questions — not just pretty charts.
