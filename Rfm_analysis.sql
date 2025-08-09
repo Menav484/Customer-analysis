@@ -36,7 +36,7 @@ LIMIT 10;
 --  RFM (Recency, Frequency, Monetary) — Customer Segmentation
 
 select customerid,
-datediff('2011-12-10' , MAX(InvoiceDate)) AS Recency,
+datediff('2011-12-10' , MAX(InvoiceDate)) AS Recency,  -- '2011-12-10' is the last date of transaction in Data
 count(distinct(InvoiceNo)) as frequency ,
 sum(UnitPrice*Quantity) as monetary 
 from e_commerce
@@ -49,8 +49,6 @@ order by recency  , frequency desc , monetary desc
 create view rfm_analysis as 
 SELECT 
     CustomerID,
-
-    -- Recency (Lower is better)
     DATEDIFF("2011-12-10", MAX(InvoiceDate)) AS Recency,
     CASE
         WHEN DATEDIFF("2011-12-10", MAX(InvoiceDate)) <= 30 THEN 5
@@ -60,7 +58,7 @@ SELECT
         ELSE 1
     END AS R_score,
 
-    -- Frequency (Higher is better)
+    
     COUNT(DISTINCT InvoiceNo) AS Frequency,
     CASE
         WHEN COUNT(DISTINCT InvoiceNo) >= 50 THEN 5
@@ -70,7 +68,7 @@ SELECT
         ELSE 1
     END AS F_score,
 
-    -- Monetary (Higher is better)
+    
     ROUND(SUM(Quantity * UnitPrice), 2) AS Monetary,
     CASE
         WHEN SUM(Quantity * UnitPrice) >= 10000 THEN 5
@@ -90,6 +88,7 @@ create view avg_rfm as
 select customerid, r_score , f_score ,m_score, round((r_score +  f_score + m_score )/3,2) as RFM_score from rfm_analysis
 group by customerid;
 
+-- Grouping  customers 
 
 create view c_type as 
 select * , case 
